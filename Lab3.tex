@@ -1,0 +1,36 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[russian]{babel}
+\usepackage{amsmath}
+
+\usepackage{verbatim}
+\usepackage{setspace}
+\singlespacing
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\begin{document}
+	
+	\begin{equation}
+	\begin{split}
+	f(x) = \frac{1}{1 + 25x^2} = \frac{1}{(1-5ix)(1+5ix)} = \frac{1}{2(1-5ix)} + \frac{1}{2(1+5ix)} = \\ \frac{1}{2} (\sum_{k=0}^\infty(5ix)^k + \sum_{k=0}^\infty(-1)^k(5ix)^k) = \frac{1}{2}\sum_{k=0}^\infty(5^k i^k x^k (1 + (-1)^k))
+	\end{split}
+	\end{equation}
+Видно, что при $k = 2n+1$ общий член ряда обращается в ноль. Значит суммирование надо вести по четным индексам.
+\begin{equation}
+f(x)  = \sum_{k=0}^\infty5^{2k} i^{2k} x^{2k}  2 = \sum_{k=0}^\infty(-1)^k5^{2k} x^{2k}.
+\end{equation}
+Ряд сходится при $ |5ix|< 1 \implies |x| < \frac{1}{5} $.
+Степенные ряды можно почленно дифференциировать внутри круга сходимости
+\begin{equation}
+f^{ ' }(x) = \sum_{k=1}^\infty (-1)^k 5^{2k} 2k x^{2k-1}
+\end{equation}
+\begin{equation}
+f^{ '' }(x) = \sum_{k=2}^\infty (-1)^k 5^{2k} 2k(2k-1) x^{2k-2}
+\end{equation}
+\begin{equation}
+f^{ (n) }(x) = \sum_{k=n}^\infty (-1)^k 5^{2k} 2k  \ldots (2k - n + 1) x^{2k - n}
+\end{equation}
+\end{document} 
